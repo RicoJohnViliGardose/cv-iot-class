@@ -1117,6 +1117,7 @@ def draw_help(img, theme):
         draw_hud_text(img, a, (x1 + 20, y), theme["accent"], 0.55, 1)
         draw_hud_text(img, b, (x1 + 200, y), (235, 235, 235), 0.5, 1)
 
+
 #TODO: Displays the game's heads-up display (HUD), including the current dimension, filter name, instructions, FPS, face count, detected gestures, and keyboard shortcuts.
 def draw_hud(frame, app, theme, fps, face_count, now):
     h, w = frame.shape[:2]
@@ -1298,8 +1299,6 @@ def main():
                         if double_l:             
                             if d2.collected:
                                 fb.toast(f'Removed "{d2.collected.pop()}"', BAD_COLOR, now, 1.5)
-                            else:
-                                fb.toast("Nothing to remove yet - collect a word first!", GOLD_COLOR, now, 1.8)
                         update_dim2(d2, dt, now, primary, tracker, fb, w, h)
 
                 else:                          
@@ -1385,8 +1384,6 @@ def main():
                 elif app.dim == 0 and key in (ord("u"), 8):
                     if d2.collected:
                         fb.toast(f'Removed "{d2.collected.pop()}"', BAD_COLOR, now, 1.5)
-                    else:
-                        fb.toast("Nothing to remove yet - collect a word first!", GOLD_COLOR, now, 1.8)
 
                 try:
                     if frame_count > 10 and cv2.getWindowProperty(WINDOW_NAME, cv2.WND_PROP_VISIBLE) < 1:
